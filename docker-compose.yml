@@ -1,0 +1,22 @@
+version: '3.9'
+
+services:
+  database:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: 
+
+  transaction-system:
+    depends_on:
+      - database
+    build:
+        dockerfile: Dockerfile
+        context: ./
+    environment:
+      HOST: localhost
+      PORT: 5432
+      USER: postgres
+      PASSWORD: 
+      DBNAME: postgres
+      SSLMODE: disable

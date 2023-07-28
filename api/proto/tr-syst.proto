@@ -1,0 +1,35 @@
+//protoc --go-grpc_out=api api\proto\tr-syst.proto
+syntax = "proto3";
+
+package transaction;
+
+service TransactionService {
+  rpc CreateTransaction(CreateTransactionRequest) returns (CreateTransactionResponse) {}
+  rpc GetTransaction(GetTransactionRequest) returns (GetTransactionResponse) {}
+}
+
+message CreateTransactionRequest {
+  string amount = 1;
+  string currency = 2;
+  string sender_card_number = 3;
+  string recipient_phone_number = 4;
+}
+
+message CreateTransactionResponse {
+  string id = 1;
+}
+
+message GetTransactionRequest {
+  string id = 1;
+}
+
+message GetTransactionResponse {
+  string amount = 1;
+  string currency = 2;
+  string sender_card_number = 3;
+  string recipient_phone_number = 4;
+  string date_time = 5;
+}
+
+
+option go_package = "/ts";
