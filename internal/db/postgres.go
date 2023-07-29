@@ -6,11 +6,11 @@ import (
 	ts "go-tr-syst/pkg/gen-tr-syst"
 	"log"
 
-	//"os"
+	"os"
 	"github.com/jackc/pgx/v4"
 )
 
-/*
+
 var host = os.Getenv("HOST")
 var port = os.Getenv("PORT")
 var user = os.Getenv("USER")
@@ -19,8 +19,8 @@ var sslmode = os.Getenv("SSLMODE")
 var dbname = os.Getenv("DBNAME")
 
 var dbInfo = fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=%s", host, port, user, password, dbname, sslmode)
-*/
-var dbInfo = fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=%s", "localhost", "5432", "postgres", "Password10", "base", "disable")
+
+//var dbInfo = fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=%s", "localhost", "5432", "postgres", "Password10", "base", "disable")
 
 func ConnectDB() (*pgx.Conn, error) {
 	conn, err := pgx.Connect(context.Background(), dbInfo)
